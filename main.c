@@ -15,13 +15,16 @@ int main (int argc, char *argv[]) {
     FILE *saida = NULL;
     
     char *palavra = malloc(STRINGMAX * sizeof(char));
-    char *comando = malloc(3 * sizeof(char));
+    char *comando = malloc(5 * sizeof(char));
     
     fpos_t *aux = malloc(sizeof(fpos_t));
     
     int linhaAnt = 0;
     int linha = 0;
     int numero = 0;
+    
+    
+    
     
     /*
      Abertura de arquivos
@@ -60,22 +63,57 @@ int main (int argc, char *argv[]) {
         while (linhaAnt++ < linha) fprintf(saida, "0000 ");
         
         /* Lê a segunda palavra, que pode ser um número ou um comando */
-        fscanf(entrada, "%s", palavra);
+        fscanf(entrada, "%s", palavra);     /* Checa comentário */
         if (palavra[0] == ';') {
             while (fgetc(entrada) != '\n');
             continue;
         }
         
-        if (palavra[0] == '-' || palavra[0] == '+') {
+        if (palavra[0] == '-' || palavra[0] == '+') {   /* Se for um número */
             numero = atoi(palavra);
             fprintf(saida, "%d ", numero);
             continue;
         }
-        else {
+        else {          /* Se for um comando */
             comando = ++palavra;
             comando[3] = '\0';
+                        
+            if(strcmp(comando, "LDA") == 0)
+                fprintf(saida, "0B");
+            else if(strcmp(comando, "STA") == 0)
+                fprintf(saida, "0C");
+            else if(strcmp(comando, "INN") == 0)
+                fprintf(saida, "1F");
+            else if(strcmp(comando, "PRN") == 0)
+                fprintf(saida, "29");
+            else if(strcmp(comando, "STP") == 0) {
+                fprintf(saida, "4600 ");
+                continue;
+            }
             
-            fprintf(saida, "%s ", comando);
+            else if(strcmp(comando, "ADD") == 0)
+                fprintf(saida, "15");
+            else if(strcmp(comando, "SUB") == 0)
+                fprintf(saida, "16");
+            else if(strcmp(comando, "MUL") == 0)
+                fprintf(saida, "17");
+            else if(strcmp(comando, "DIV") == 0)
+                fprintf(saida, "18");
+            else if(strcmp(comando, "REM") == 0)
+                fprintf(saida, "19");
+            
+            else if(strcmp(comando, "JLE") == 0)
+                fprintf(saida, "34");
+            else if(strcmp(comando, "JDZ") == 0)
+                fprintf(saida, "35");
+            else if(strcmp(comando, "JGT") == 0)
+                fprintf(saida, "36");
+            else if(strcmp(comando, "JEQ") == 0)
+                fprintf(saida, "37");
+            else if(strcmp(comando, "JLT") == 0)
+                fprintf(saida, "38");
+            else if(strcmp(comando, "JGE") == 0)
+                fprintf(saida, "39");
         }
         
         /* Lê a terceira palavra, que vai ser um número */
