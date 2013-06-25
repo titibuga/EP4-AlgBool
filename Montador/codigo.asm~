@@ -1,0 +1,2 @@
+00 {LDA} 70			;comentario
+00    {STA}   80			;comentario
