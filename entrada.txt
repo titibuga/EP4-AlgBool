@@ -1,0 +1,11 @@
+; apos o ponto e virgula temos comentarios
+;
+00 {LDA} 10     ;bla
+01 {ADD} 11     ;   aisudfljk
+02 {STA} 12
+03 {PRN} 12     ;;; sadf;sadf;s fsad
+04 {STP}
+;
+;
+10 -7770
+11 +7777

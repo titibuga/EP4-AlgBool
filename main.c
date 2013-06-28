@@ -5,11 +5,16 @@
 
 #define STRINGMAX 80
 
+char charForHexInt (int n);
+char *string4ForHexInt (int n);
+char *string4TwosCompForHexInt (int n);
+char *string2ForHexInt (int n);
+
 int main (int argc, char *argv[]) {
     
     /*
      Declarações
-    */
+     */
     
     FILE *entrada = NULL;
     FILE *saida = NULL;
@@ -28,7 +33,7 @@ int main (int argc, char *argv[]) {
     
     /*
      Abertura de arquivos
-    */
+     */
     
     entrada = fopen(argv[1], "r");
     
@@ -46,10 +51,12 @@ int main (int argc, char *argv[]) {
     
     /*
      Processamento do arquivo
-    */
+     */
     
     
     while (!feof(entrada)) {
+        
+        char *num;
         
         /* Leitura do número da linha */
         fscanf(entrada, "%s", palavra);
@@ -71,13 +78,15 @@ int main (int argc, char *argv[]) {
         
         if (palavra[0] == '-' || palavra[0] == '+') {   /* Se for um número */
             numero = atoi(palavra);
-            fprintf(saida, "%d ", numero);
+            if (numero < 0) num = string4TwosCompForHexInt(-numero);
+            else num = string4ForHexInt(numero);
+            fprintf(saida, "%s ", num);
             continue;
         }
         else {          /* Se for um comando */
             comando = ++palavra;
             comando[3] = '\0';
-                        
+            
             if(strcmp(comando, "LDA") == 0)
                 fprintf(saida, "0B");
             else if(strcmp(comando, "STA") == 0)
@@ -124,7 +133,8 @@ int main (int argc, char *argv[]) {
         }
         
         numero = atoi(palavra);
-        fprintf(saida, "%d ", numero);
+        num = string2ForHexInt(numero);
+        fprintf(saida, "%s ", num);
         
     }
     
@@ -133,4 +143,101 @@ int main (int argc, char *argv[]) {
     fclose(saida);
     
     return 0;
+}
+
+char *string4TwosCompForHexInt (int n) {
+    char *result = malloc(5*sizeof(char));
+    char *binario = malloc(17*sizeof(char));
+    
+    int i, j;
+    
+    printf("%d\n", n);
+    
+    for (j = 0; j < 16; j++) {
+        i = n % 2;
+        n = (n - i)/2;
+        if (i == 0) binario[j] = '1';
+        else binario[j] = '0';
+    }
+    
+    printf("%s\n", binario);
+    
+    for (j = 0; j < 16; j++) {
+        if (binario[j] == '1')
+            binario[j] = '0';
+        else if (binario[j] == '0') {
+            binario[j] = '1';
+            break;
+        }
+    }
+    
+    printf("%s\n", binario);
+
+    i = 1;
+    n = 0;
+    for (j = 0; j < 16; j++) {
+        if (binario[j] == '1') n += i;
+        i *= 2;
+    }
+    printf("%d\n", n);
+
+    
+    i = n % 16;
+    n = (n - i)/16;
+    result[3] = charForHexInt(i);
+    i = n % 16;
+    n = (n - i)/16;
+    result[2] = charForHexInt(i);
+    i = n % 16;
+    n = (n - i)/16;
+    result[1] = charForHexInt(i);
+    result[0] = charForHexInt(n);
+    result[5] = '\0';
+    
+    printf("%s\n", result);
+    
+    free(binario);
+    
+    return result;
+}
+
+char *string4ForHexInt (int n) {
+    char *result = malloc(5*sizeof(char));
+    
+    int i;
+    
+    i = n % 16;
+    n = (n - i)/16;
+    result[3] = charForHexInt(i);
+    i = n % 16;
+    n = (n - i)/16;
+    result[2] = charForHexInt(i);
+    i = n % 16;
+    n = (n - i)/16;
+    result[1] = charForHexInt(i);
+    result[0] = charForHexInt(n);
+    result[5] = '\0';
+    
+    printf("%s\n", result);
+    
+    return result;
+}
+
+char *string2ForHexInt (int n) {
+    char *result = malloc(2*sizeof(char));
+        
+    int i = 0;
+    i = n % 16;
+    n = (n - i)/16;
+    result[1] = charForHexInt(i);
+    result[0] = charForHexInt(n);
+    result[2] = '\0';
+        
+    return result;
+}
+
+char charForHexInt (int n) {
+    if (n >= 0 && n < 10)
+        return '0' + n;
+    return 'A' + n - 10;
 }
