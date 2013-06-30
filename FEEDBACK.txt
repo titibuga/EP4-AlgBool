@@ -1,0 +1,15 @@
+Vinícius Jorge Vendramini:
+Os EPs, em geral, são uma boa forma de fazer entender muita coisa sobre
+a Álgebra Booleana, principalmente os 3 três últimos. O projeto final
+talvez seja um pouco ambicioso demais, mas o modo como os enunciados
+foram escritos, com os esquemas e exemplos, definitivamente ajudou muito
+a entender como cada parte deveria ser feita.
+Talvez a ideia de montar um computador seja melhor executada se os
+alunos tiverem mais material relacionado a isso. Apostilas e textos que
+expliquem como o computador deve funcionar poderiam ajudar nas partes
+que tem menos a ver com a Álgebra Booleana em si e mais a ver com como a
+arquitetura dos computadores é feita.
+O fato de o EP ter sido em grupo foi o que tornou viável a sua execução.
+Se fosse individual, a sua complexidade somada à alta quantidade de
+créditos de trabalho do terceiro semestre teria provavelmente feito com
+que o deixássemos de lado para poder focar em outras matérias.
