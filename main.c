@@ -20,6 +20,10 @@
 
 #define STRINGMAX 80
 
+/*
+ Protótipos
+*/
+
 char charForHexInt (int n);             /* Retorna o caracter hexadecimal dado um número de 0 a 15 */
 char *string4ForHexInt (int n);         /* Retorna uma string de 4 dígitos com o hexadecimal
                                          equivalente ao decimal n */
@@ -27,6 +31,12 @@ char *string4TwosCompForHexInt (int n); /* Retorna uma string de 4 dígitos com 
                                          equivalente ao complemento de 2 do decimal n */
 char *string2ForHexInt (int n);         /* Retorna uma string de 2 dígitos com o hexadecimal
                                          equivalente ao decimal n */
+
+
+
+/*
+ Main
+*/
 
 int main (int argc, char *argv[]) {
     
@@ -52,6 +62,11 @@ int main (int argc, char *argv[]) {
     /*
      Abertura de arquivos
      */
+    
+    if (argc == 1) {
+        printf("Modo de utilização: %s <arquivo de entrada>\nO programa produzirá um arquivo de nome \"saida.hip\".\n", argv[0]);
+        exit(1);
+    }
     
     entrada = fopen(argv[1], "r");      /* Abre o arquivo de entrada */
     
