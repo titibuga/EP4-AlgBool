@@ -1,3 +1,18 @@
+/*******************************************************
+ EP4 DE MAC0329 - ALGEBRA BOOLEANA E SUAS APLICACOES
+ PRIMEIRO SEMESTRE DE 2013
+ 
+ PROFESSOR: JUNIOR BARRERA
+ 
+ GRUPO:
+ 
+ GERVASIO PROTASIO DOS SANTOS NETO - NUSP:7990996
+ VINICIUS JORGE VENDRAMINI - NUSP: 7991103
+ MATEUS BARROS RODRIGUES - NUSP: 7991037
+ VICTOR SANCHES PORTELLA - NUSP: 7991152
+*******************************************************/
+
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <math.h>
