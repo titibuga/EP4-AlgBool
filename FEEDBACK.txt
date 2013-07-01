@@ -13,3 +13,30 @@ O fato de o EP ter sido em grupo foi o que tornou viável a sua execução.
 Se fosse individual, a sua complexidade somada à alta quantidade de
 créditos de trabalho do terceiro semestre teria provavelmente feito com
 que o deixássemos de lado para poder focar em outras matérias.
+
+Gervásio Protásio dos Santos Neto:
+Achei o projeto da disciplina bastante interessante. Foi bem diferente de tudo
+que vimos até agora no curso e me deu um entendimento profundo do compor-
+tamento de um computador. Antes desse projeto, não entendia qual relação 
+havia entre computadores e lógica binária; como 0s e 1s permitiam processar
+e interpretar informação. Foi nesse EP que consegui finalmente entender
+coisas como a Arquitetura de Von Neumann, o ciclo FDX e a relação entre 
+bits e processadores de forma satisfatoria.
+
+Contudo, foram EPs bastante puxados, em especial o EP2 e o EP4. Eles vem em
+um semestre carregado, com muitas disciplinas e muitos créditos de trabalho.
+Era comum termos 3 EPs para entregar na mesma semana. Nesse contexto não foi
+possivel aproveitar ao máximos os EPs, que as vezes ficaram relegados a se-
+gundo plano.
+
+Outra dificuldade, foi a falta de uma bibliografia específica para as partes
+finais do projeto. Enquanto o EP1 e o EP2 poderiam ser terminados sem auxílio,
+a ausencia de textos mais profundos sobre Arquitetura de Computadores, e sobre
+como o funciona o próprio Logisim dificultaram o processo.
+
+Mas como conclusão, tenho que foi um projeto muito valioso em minha formação,
+interessante e diria quase necessário para aqueles que desejam entender todos
+os níveis de abstração que compõem um computador. Alunos futuros se beneficia-
+riam bastante de realizá-lo novamente, desde que em um contexto não tão carre-
+gado quanto foi o nosso.
+
